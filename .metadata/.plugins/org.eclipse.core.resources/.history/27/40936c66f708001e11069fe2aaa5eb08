@@ -1,0 +1,14 @@
+package Day13;
+
+public class Ex {
+
+	public static void main(String[] args) {
+		Card c = new Card();
+		c.print();
+		
+		c.setShape('♠');
+		c.setNum(8);
+		c.print();
+	}
+
+}

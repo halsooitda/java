@@ -1,0 +1,72 @@
+package Day13;
+/* CardPack 클래스
+ * - 52장의 카드 한묶음 (배열)
+ * 
+ * - 카드 섞는 기능
+ * - 한장의 카드를 빼내는 기능 - 확인
+ * - 출력 기능 - Card 클래스에서 사용
+ * - 카드 초기화 기능
+ * 
+ * */
+
+public class CardPack {
+	//int arr[] = new int[52]; // int란 배열안에 들어가는 자료의 형태
+	private Card[] pack = new Card[52]; // 52장의 카드가 들어갈 수 있는 배열, 내가 만든 클래스의 형태가 배열에 들어갈 수 있다. 모든 클래스의 정보가 다 들어간다.
+	private int cnt = 0; // 카드의 남는 개수
+	
+	// 생성자
+	public CardPack() {
+		char shape = '♥'; // ♥ ◆ ♣ ♠
+		for(int i=1; i<=4; i++) { // 4가지 모양을 넣기위해 4번 반복
+			switch(i) {
+			case 1 : shape ='♥'; break;
+			case 2 : shape ='◆'; break;
+			case 3 : shape ='♣'; break;
+			case 4 : shape ='♠'; break;
+			}
+			for(int j=1; j<=13; j++) { // 숫자
+				Card c = new Card(); // 카드 한장 객체 생성
+				c.setShape(shape); // 모양 넣어주고
+				c.setNum(j); // 숫자 넣어주고
+				pack[cnt] = c; // 모든 배열에 모든 카드 저장, 처음에 0번지에 저장 ~51번지까지
+				cnt++; // 그 다음 번지
+			}
+		}
+	}
+	
+	// pick 카드 한장 빼내는 기능
+	// pick()
+	// 현재 cnt 값은? 52
+	// cnt = 0 이라는 의미는 카드가 하나도 생성되지 않은 상황
+	// 리턴타입 Card
+	public Card pick() { // 카드 한장을 주는 기능
+		if(cnt == 0) {
+			return null; // 줄 카드가 없다
+		}
+		cnt--; // cnt가 52이므로 0~51번지만 있으니까 1빼고
+		return pack[cnt]; // 51번지부터
+	}
+	
+	// 카드를 섞는 기능
+	// shuffle();
+	// 리턴타입 : X void ,매개변수 : X 원래 있던 카드 섞기만 하는 거니까
+	public void shuffle() {
+		int min = 0;
+		int max = pack.length-1; // 0~51번지
+		
+		for(int i=0; i<pack.length; i++) {
+			int random = (int)(Math.random()*(max-min+1))+min;
+			Card tmp = pack[i];
+			pack[i] = pack[random];
+			pack[random] = tmp; // pack[i] <-> pack[random]
+		}
+	}
+	
+	// 초기화 기능
+	public void init() {
+		cnt = 52; // 다시 번지수 채워주기
+	}
+	
+	
+	
+}

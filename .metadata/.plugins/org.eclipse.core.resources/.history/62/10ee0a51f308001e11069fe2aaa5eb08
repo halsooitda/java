@@ -1,0 +1,70 @@
+package Day13;
+
+/* Card 클래스 생성
+ * - 숫자 : 1~10, J, Q, K
+ * - 모양 : ♥, ♣, ◆, ♠
+ * - 한장의 카드 정보를 출력하는 기능
+ * */
+/* 클래스의 구성
+ * - 멤버변수 : 모양, 숫자 => private선언 => getter/setter
+ * - 메서드 : print 메서드 
+ * - 생성자 : 기본생성자만 생성 => ♥1
+ * */
+public class Card {
+	private char shape;
+	private int num;
+	
+	// 기본생성자 
+	public Card() {
+		this.shape = '♥'; // 아무것도 안 넣어도 나오는 값
+		this.num = 1;
+	}
+	
+	// 프린트
+	public void print() {
+		// 모양
+		if(shape=='♥' || shape=='♣' || shape=='◆' || shape=='♠') {
+			System.out.print(shape);
+		}else {
+			System.out.print(this.shape);
+		}
+		// 숫자
+		if(num>=1 && num<=13) {
+			switch(num) {
+			case 11: System.out.println("J"); break;
+			case 12: System.out.println("Q"); break;
+			case 13: System.out.println("K"); break;
+			default: System.out.println(num); break;
+			}
+		}else {
+			System.out.println(this.num);
+		}
+	}
+	
+	// getter, setter
+	public char getShape() {
+		return shape;
+	}
+	
+	public void setShape(char shape) {
+		switch(shape) {
+		case '♥' : case '♣' : case '◆' : case '♠' :
+			this.shape = shape;
+			break;
+			default : this.shape = '♥';
+		}
+	}
+	
+	public int getNum() {
+		return num;
+	}
+	
+	public void setNum(int num) {
+		if(num>=1 && num<=13) {
+			this.num = num;
+		}else {
+			this.num = 1;
+		}
+	}
+	
+}

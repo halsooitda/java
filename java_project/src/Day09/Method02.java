@@ -1,0 +1,40 @@
+package Day09;
+
+public class Method02 {
+
+	public static void main(String[] args) {
+		// + - *  / % 의 결과를 알려주는 메서드를 생성
+		//main에서 호출하여 확인
+		
+		System.out.println("더하기 > "+sum(20,10));
+		System.out.println("빼기 > "+sub(20,10));
+		System.out.println("곱하기 > "+mul(20,10));
+		System.out.println("나누기 > "+div(10,20));
+		System.out.println("나머지 > "+mod(10,20));
+		
+	}
+	
+	// 메서드 선언 위치
+	public static int sum(int num1, int num2) {
+		return num1 + num2;
+	}
+	
+	public static int sub(int num1, int num2) {
+		return num1 - num2;
+	}
+	
+	public static int mul(int num1, int num2) {
+		return num1 * num2;
+	}
+	
+	public static double div(int num1, int num2) {
+		return num1 / (double)num2;
+	}
+	
+	public static int mod(int num1, int num2) {
+		return num1 % num2;
+	}
+	
+	
+
+}

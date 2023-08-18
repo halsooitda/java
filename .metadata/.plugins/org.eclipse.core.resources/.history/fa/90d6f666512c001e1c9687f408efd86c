@@ -1,0 +1,11 @@
+package Day01;
+
+public class 연습용 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		
+	}
+
+}

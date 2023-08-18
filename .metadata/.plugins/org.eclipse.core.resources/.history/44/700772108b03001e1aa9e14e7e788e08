@@ -1,0 +1,32 @@
+package Day09;
+
+public class Method04 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(isPrime(4));
+		
+	}
+	
+	/* 정수가 주어지면 이 정수가 소수인지 아닌지 판별 (true / false)
+	 * 소수 : 1과 자기자신의 수 외에는 나누어 떨어지지않는 수
+	 * 리턴타입 : boolean
+	 * 매개변수 : int num
+	 * 메서드명 : isPrime
+	 * */
+	public static boolean isPrime(int num) {
+		int cnt = 0;
+		for(int i=1; i<=num; i++) {
+			if(num%i==0) {
+				cnt++;
+			}
+		}
+		if(cnt==2) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+}

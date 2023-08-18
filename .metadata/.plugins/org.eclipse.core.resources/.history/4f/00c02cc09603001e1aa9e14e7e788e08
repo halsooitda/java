@@ -1,0 +1,47 @@
+package Day09;
+
+public class Method05 {
+
+	public static void main(String[] args) {
+		/* 최대공약수, 최소공배수 메서드
+		 * */
+		System.out.println("최소공약수 > "+gcd(8,12));
+		
+		
+		System.out.println("최대공배수 > "+lcm(10,20));
+	}
+	
+	/* 두 정수를 매개변수로 받아, 최대공약수를 리턴하는 메서드
+	 * 매개변수 : 두 정수(int num1, int num2)
+	 * 리턴타입 : 최대공약수 (int)
+	 * 메서드명 : gcd
+	 * */
+	public static int gcd(int num1, int num2) {
+		int result =0; // 공약수가 들어올 변수
+		for(int i=1; i<=num1; i++) {
+			if(num1%i==0 && num2%i==0) {
+				result = i;
+			} 
+		}
+		return result;
+	}
+
+	
+	/* 두 정수를 매개변수로 받아, 최소공배수를 리턴하는 메서드
+	 * 매개변수 : 두 정수(int num1, int num2)
+	 * 리턴타입 : 최소공배수 (int)
+	 * 메서드명 : lcm
+	 * */
+	
+	public static int lcm(int num1, int num2) {
+		int result = 0;
+		for(int i=num1; ; i+=num1) {
+			if(i%num1==0 && i%num2==0) {
+				result = i;
+				break;
+			}
+		} return result;
+	}
+	
+	
+}

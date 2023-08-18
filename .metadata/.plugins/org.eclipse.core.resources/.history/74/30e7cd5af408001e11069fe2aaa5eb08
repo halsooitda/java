@@ -1,0 +1,13 @@
+package Day13;
+
+public class CardEx {
+
+	public static void main(String[] args) {
+		Card c = new Card();
+		c.print();
+		c.setShape('♣');
+		c.setNum(0);
+		c.print();
+	}
+
+}
